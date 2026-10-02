@@ -1,0 +1,21 @@
+# Local secrets
+/.env
+
+# Composer dependencies are installed from composer.lock
+/vendor/
+
+# CodeIgniter runtime files
+/writable/cache/*
+!/writable/cache/index.html
+/writable/logs/*
+!/writable/logs/index.html
+/writable/session/*
+!/writable/session/index.html
+/writable/uploads/*
+!/writable/uploads/index.html
+
+# Android Studio / Gradle generated files
+/GPTranscoApp/.gradle/
+/GPTranscoApp/**/build/
+/GPTranscoApp/local.properties
+/GPTranscoApp/.idea/

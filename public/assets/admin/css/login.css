@@ -1,0 +1,141 @@
+* { box-sizing: border-box; }
+
+body.auth-page {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background: #f7f9fc;
+    color: #172b45;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.auth-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.04fr) minmax(480px, .96fr);
+    min-height: 100vh;
+}
+
+.brand-panel {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: clamp(34px, 5vw, 76px);
+    color: #fff;
+    background-color: #143b69;
+    background-image: linear-gradient(112deg, rgba(7, 37, 73, .8) 0%, rgba(10, 47, 87, .53) 55%, rgba(8, 43, 82, .33) 100%), url("../images/mindanao-coastal-van.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.brand-panel::after {
+    position: absolute;
+    right: -70px;
+    bottom: -180px;
+    width: 480px;
+    height: 480px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.brand-panel__accents {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    display: flex;
+    gap: 9px;
+    height: 90px;
+    transform: skewX(-32deg);
+}
+
+.brand-panel__accents span { display: block; width: 15px; height: 100%; opacity: .96; }
+.brand-panel__accents span:nth-child(1) { background: #f6c640; }
+.brand-panel__accents span:nth-child(2) { background: #e43b45; }
+.brand-panel__accents span:nth-child(3) { background: #3c83d7; }
+
+.brand-panel__copy { position: relative; z-index: 1; width: min(620px, 100%); margin: auto 0; padding-top: 42px; }
+.brand-panel__eyebrow { margin: 0 0 22px; color: #d8e8fa; font-size: .78rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.brand-panel__copy h1 { margin: 0; font-size: clamp(2.8rem, 5.6vw, 5.6rem); font-weight: 750; letter-spacing: -.055em; line-height: 1.02; text-wrap: balance; }
+.brand-panel__subtitle { max-width: 445px; margin: 25px 0 0; color: rgba(255, 255, 255, .88); font-size: clamp(1rem, 1.35vw, 1.16rem); line-height: 1.7; }
+.brand-panel__bottom { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; color: rgba(255, 255, 255, .78); font-size: .82rem; letter-spacing: .04em; }
+.brand-panel__route-line { width: 34px; height: 2px; background: #f6c640; }
+
+.login-panel { display: grid; min-height: 100vh; place-items: center; padding: 48px clamp(32px, 6vw, 100px); background: #fff; }
+.login-content { width: min(100%, 440px); }
+.login-brand { display: flex; align-items: center; gap: 15px; margin-bottom: clamp(45px, 7vh, 78px); }
+.login-brand__logo { display: block; width: 64px; height: 64px; flex: 0 0 64px; object-fit: contain; }
+.login-brand__name { color: #183c68; font-size: 1.18rem; font-weight: 750; letter-spacing: -.025em; }
+.login-brand__system { margin-top: 5px; color: #718097; font-size: .65rem; font-weight: 700; letter-spacing: .12em; }
+.login-heading { margin-bottom: 30px; }
+.login-heading__overline { color: #2b65a3; font-size: .72rem; font-weight: 750; letter-spacing: .17em; }
+.login-heading h2 { margin: 9px 0; color: #142d4b; font-size: clamp(2rem, 3vw, 2.45rem); font-weight: 750; letter-spacing: -.045em; }
+.login-heading p { margin: 0; color: #728096; font-size: .96rem; }
+.login-form .form-label { margin-bottom: 8px; color: #30435c; font-size: .85rem; font-weight: 650; }
+.auth-input-wrap { position: relative; }
+
+.auth-input-icon {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 16px;
+    width: 19px;
+    height: 19px;
+    transform: translateY(-50%);
+    fill: none;
+    stroke: #8292a7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.7;
+    pointer-events: none;
+}
+
+.auth-input { min-height: 54px; padding: 12px 16px 12px 47px; border: 1px solid #dce3ec; border-radius: 9px; background: #fbfcfe; color: #20354f; font-size: .94rem; box-shadow: 0 2px 5px rgba(23, 43, 69, .025); }
+.auth-input--password { padding-right: 72px; }
+.auth-input:focus { border-color: #4e86c4; background: #fff; box-shadow: 0 0 0 4px rgba(41, 105, 173, .11); }
+.password-toggle { position: absolute; z-index: 3; top: 50%; right: 13px; padding: 5px 3px; transform: translateY(-50%); border: 0; background: transparent; color: #2865a5; font-size: .8rem; font-weight: 650; }
+.password-toggle:hover { color: #174b82; }
+.auth-link { color: #2865a5; font-size: .86rem; font-weight: 650; text-decoration: none; }
+.auth-link:hover { color: #174b82; text-decoration: underline; }
+.auth-back-wrap { margin: 22px 0 0; text-align: center; }
+
+.auth-submit { display: flex; min-height: 54px; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 9px; background: #2164a7; color: white; font-size: .98rem; font-weight: 700; box-shadow: 0 7px 16px rgba(33, 100, 167, .18); transition: background-color .15s ease, transform .15s ease, box-shadow .15s ease; }
+.auth-submit:hover { transform: translateY(-1px); background: #194f88; color: white; box-shadow: 0 9px 19px rgba(33, 100, 167, .24); }
+.auth-submit svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.auth-alert { border-radius: 8px; font-size: .88rem; }
+.login-footer { margin-top: clamp(42px, 7vh, 76px); color: #8b97a8; font-size: .76rem; text-align: center; }
+
+@media (max-width: 900px) {
+    .auth-shell { grid-template-columns: minmax(0, .9fr) minmax(420px, 1.1fr); }
+    .brand-panel { padding: 38px; }
+    .login-panel { padding-right: 36px; padding-left: 36px; }
+}
+
+@media (max-width: 700px) {
+    .auth-shell { display: flex; flex-direction: column; }
+    .brand-panel { min-height: 245px; padding: 28px 26px; background-position: center 58%; }
+    .brand-panel__copy { margin: auto 0; padding: 20px 0 8px; }
+    .brand-panel__copy h1 { font-size: clamp(2.25rem, 10vw, 3.3rem); }
+    .brand-panel__eyebrow { margin-bottom: 11px; font-size: .68rem; }
+    .brand-panel__subtitle { max-width: 390px; margin-top: 12px; font-size: .86rem; line-height: 1.45; }
+    .brand-panel__bottom { display: none; }
+    .brand-panel__accents { right: 12%; height: 58px; }
+    .login-panel { min-height: calc(100vh - 245px); padding: 32px 25px 24px; }
+    .login-content { max-width: 450px; }
+    .login-brand { gap: 12px; margin-bottom: 34px; }
+    .login-brand__logo { width: 54px; height: 54px; flex-basis: 54px; }
+    .login-brand__name { font-size: 1.05rem; }
+    .login-brand__system { font-size: .58rem; }
+    .login-heading { margin-bottom: 24px; }
+    .login-footer { margin-top: 35px; }
+}
+
+@media (max-width: 380px) {
+    .brand-panel { min-height: 225px; }
+    .login-panel { min-height: calc(100vh - 225px); }
+    .brand-panel__copy h1 { font-size: 2.15rem; }
+    .brand-panel__subtitle { font-size: .8rem; }
+}

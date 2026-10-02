@@ -1,0 +1,83 @@
+body {
+    background: #f3f6fa;
+    color: #243247;
+}
+
+.sidebar {
+    width: 245px;
+    min-height: 100vh;
+    flex: 0 0 245px;
+    background: #17365d;
+}
+
+.sidebar .sidebar-brand {
+    display: flex;
+    min-height: 72px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    padding: 4px;
+    color: #fff;
+    font-size: 1.22rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.sidebar-brand img {
+    display: block;
+    width: 82px;
+    height: 64px;
+    flex: 0 0 82px;
+    object-fit: contain;
+}
+
+.sidebar-brand:hover { color: #fff; }
+
+.sidebar-section-title { text-align: center; }
+
+.sidebar a {
+    display: block;
+    padding: .65rem .8rem;
+    border-radius: .4rem;
+    color: #d9e4f2;
+    text-decoration: none;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+    background: #264b77;
+    color: #fff;
+}
+
+.sidebar .disabled-link {
+    cursor: default;
+    opacity: .58;
+}
+
+.workspace {
+    min-width: 0;
+    flex: 1;
+}
+
+.metric-card {
+    min-height: 112px;
+    border: 0;
+    border-radius: 10px;
+}
+
+@media (max-width: 767.98px) {
+    .app-shell {
+        display: block !important;
+    }
+
+    .sidebar {
+        display: none;
+        width: 100%;
+        min-height: 0;
+    }
+
+    .sidebar.is-open {
+        display: block;
+    }
+}

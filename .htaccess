@@ -1,0 +1,24 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Keep application source and development files out of public URLs.
+    RewriteRule ^(app|system|writable|tests|vendor|GPTranscoApp)(/|$) - [F,L,NC]
+    RewriteRule (^|/)\. - [F,L]
+    <FilesMatch "^(env|composer\.(json|lock)|spark|preload\.php)$">
+        Require all denied
+    </FilesMatch>
+
+    # Serve browser assets from CodeIgniter's public directory at clean URLs.
+    RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+    RewriteRule ^walaybackground\.png$ public/walaybackground.png [L]
+
+    # Let real files and directories be served directly; send app routes to CI4.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
